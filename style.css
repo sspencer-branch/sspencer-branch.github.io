@@ -1,0 +1,32 @@
+:root{
+	font-size: 16px;
+}
+
+body{
+	background: #93E9BE;
+}
+
+main {
+	display:  grid;
+	grid-template-columns:  auto;
+	justify-items: center;
+	gap:  2rem;
+}
+
+main h1{
+}
+
+main .button-container{
+	display:  grid;
+	grid-template-columns: minmax(300px, 1fr);
+	justify-items: center;
+	gap: 1.5rem;
+}
+
+.button-container button{
+	border: solid 2px #5E716A;
+	border-radius: 24px;
+	font-weight:  bolder;
+	padding: .5rem .75rem;
+	cursor: pointer;
+}
