@@ -4,16 +4,26 @@
 
 body{
 	background: #93E9BE;
+	margin:  0;
 }
 
 main {
 	display:  grid;
 	grid-template-columns:  auto;
 	justify-items: center;
-	gap:  2rem;
+	gap:  1rem;
+	padding: 1rem;
+	width: calc(100% - 2rem);
 }
 
 main h1{
+	text-align: center;
+	font-weight: normal;
+	font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+}
+
+main h3{
+	margin-block-start: 0px;
 }
 
 main .button-container{
@@ -21,6 +31,7 @@ main .button-container{
 	grid-template-columns: minmax(300px, 1fr);
 	justify-items: center;
 	gap: 1.5rem;
+	padding: 1rem;
 }
 
 .button-container button{
@@ -29,4 +40,29 @@ main .button-container{
 	font-weight:  bolder;
 	padding: .5rem .75rem;
 	cursor: pointer;
+}
+
+.input-container{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+	width: clamp(150px,100%,500px);
+	gap: 1rem;
+}
+
+.input-container .single-input{
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	padding:  1rem;
+	gap: 1rem;
+	background-color: #def8eb;
+	border: solid 2px black;
+	border-radius: .25rem;
+}
+
+.single-input .input-name{
+	font-size: 1rem;
+	font-weight: bold;
+	font-family: Verdana;
+	color: #2c4539;
 }

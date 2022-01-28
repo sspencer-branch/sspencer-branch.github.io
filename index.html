@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <title></title>
   <link href="style.css" rel="stylesheet" />
   <script src="actions.js"></script>
@@ -10,23 +11,6 @@
     (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
     // init Branch
     branch.init('key_live_an1CZnh6rLOenhezXaphuccluueCCsgM');
-
-    function buyRomanceBranch() {
-    	console.log("Romance Purchased with Branch");
-    	var custom_data = {
-   "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
-   "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
-};
-
-branch.logEvent(
-    event,
-    custom_data,
-    (err)=>{
-    	console.log("error");
-    	console.log(err);
-    }
-);
-    }
   </script>
 </head>
 <body>
@@ -36,12 +20,55 @@ branch.logEvent(
   </script>
   <main>
   <h1>Welcome to Sean's Story Prompts</h1>
-  <a href="deeplink.html">Go to deeplink page</a>
-  <div class="button-container">
-  	<button onclick="buyRomanceBranch()">Purchase the Romance Genre! $5</button>
-  	<button>Generate Story Prompt</button>
-  	<button>View Story Prompt on New Page</button>
+  <h3>Current Inputs:</h3>
+  <div class="input-container">
+  	<div class="single-input">
+  		<div class="input-name">
+  			Genre
+  		</div>
+  		<div class="input-value">
+  			Scifi
+  		</div>
+  	</div>
+  	<div class="single-input">
+  		<div class="input-name">
+  			Noun
+  		</div>
+  		<div class="input-value">
+  			bees
+  		</div>
+  	</div>
+  	<div class="single-input">
+  		<div class="input-name">
+  			Adjective
+  		</div>
+  		<div class="input-value">
+  			yellow
+  		</div>
+  	</div>
+  	<div class="single-input">
+  		<div class="input-name">
+  			Verb
+  		</div>
+  		<div class="input-value">
+  			stings
+  		</div>
+  	</div>
+  	<div class="single-input">
+  		<div class="input-name">
+  			Number
+  		</div>
+  		<div class="input-value">
+  			9
+  		</div>
+  	</div>
   </div>
+  <div class="button-container">
+  	<button onclick="buyRomance()">Purchase the Romance Genre! $5</button>
+  	<button onclick="generateStoryPrompt()">Generate Story Prompt</button>
+  	<button onclick="viewStoryPrompt()">View Story Prompt on New Page</button>
+  </div>
+    <a href="deeplink.html?noun=bees&genre=scifi&adjective=yellow&verb=stings&number=9">Go to deeplink page</a>
 </main>
 </body>
 </html>
