@@ -53,10 +53,10 @@ function generateStoryPrompt(){
 }
 
 
-function viewStoryPrompt(){
+function unlockAchievement(){
 	// Lifecycle event for unlocking achievement of viewing Story Prompt
 	var event_and_custom_data = {
-	   "description": "User unlocked an achievement for viewing a story prompt.",
+	   "description": "User unlocked an achievement for generating a story prompt.",
 	};
 
 	var customer_event_alias = "View Achievement";
@@ -64,6 +64,37 @@ function viewStoryPrompt(){
 	branch.logEvent(
 	   "UNLOCK_ACHIEVEMENT",
 	   event_and_custom_data,
+	   customer_event_alias,
+	   function(err) { console.log(err); }
+	);
+}
+
+function viewStoryPrompt(){
+	// Lifecycle event for unlocking achievement of viewing Story Prompt
+	var event_and_custom_data = {
+	   "description": "User viewed a story prompt.",
+	};
+
+	var content_items = [
+	{
+	   "$content_schema": "COMMERCE_PRODUCT",
+	   "$og_title": "Romance Genre",
+	   "$og_description": "Find Love with this new Genre Selection",
+	   "$canonical_identifier": "storyprompt/genre/romance",
+	   "$price": 5.0,
+	   "$quantity": 1,
+	   "$sku": "1101123445",
+	   "$product_name": "Romance",
+	   "$product_brand": "Story Prompts",
+	   "$product_category": "Software",
+	}];
+
+	var customer_event_alias = "View Item";
+
+	branch.logEvent(
+	   "VIEW_ITEMS",
+	   event_and_custom_data,
+	   content_items,
 	   customer_event_alias,
 	   function(err) { console.log(err); }
 	);
