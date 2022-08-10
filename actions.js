@@ -35,7 +35,7 @@ function buyRomance() {
 	);
 }
 
-function generateStoryPrompt(){
+function generateStoryPrompt(x){
 	// Content Event for viewing Item
 	var custom_data = {
 	   "noun" : "bees",
@@ -44,10 +44,15 @@ function generateStoryPrompt(){
 	   "verb" : "stings",
 	   "number" : 9
 	};
+	var content_items = [
+		{
+			"~tags" : [x]
+		}];
 
 	branch.logEvent(
 	    "Story Prompt Attributes",
 	    custom_data,
+		content_items,
 	    function(err) { console.log(err); }
 	);
 }
@@ -69,7 +74,7 @@ function unlockAchievement(){
 	);
 }
 
-function viewStoryPrompt(){
+function viewStoryPrompt(x){
 	// Lifecycle event for unlocking achievement of viewing Story Prompt
 	var event_and_custom_data = {
 	   "description": "User viewed a story prompt.",
@@ -87,6 +92,7 @@ function viewStoryPrompt(){
 	   "$product_name": "Romance",
 	   "$product_brand": "Story Prompts",
 	   "$product_category": "Software",
+	   "~tags" : [x]
 	}];
 
 	var customer_event_alias = "View Item";
