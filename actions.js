@@ -42,17 +42,31 @@ function generateStoryPrompt(x){
 	   "genre" : "scifi",
 	   "adjective" : "yellow",
 	   "verb" : "stings",
-	   "number" : 9
+	   "number" : 9,
+	   "journey" : x
 	};
-	var content_items = [
-		{
-			"~tags" : [x]
-		}];
+
+	let eventName = "Sample Event Button 0";
+
+	switch(x){
+		case 1:{
+			eventName = "Sample Event Button 1"
+			break;
+		}
+		case 2:{
+			eventName = "Sample Event Button 2"
+			break;
+		}
+	}
 
 	branch.logEvent(
-	    "Story Prompt Attributes",
+	    eventName,
 	    custom_data,
-		content_items,
+	    function(err) { console.log(err); }
+	);
+	branch.logEvent(
+	    "Sample Event",
+	    custom_data,
 	    function(err) { console.log(err); }
 	);
 }
@@ -78,6 +92,7 @@ function viewStoryPrompt(x){
 	// Lifecycle event for unlocking achievement of viewing Story Prompt
 	var event_and_custom_data = {
 	   "description": "User viewed a story prompt.",
+	   "journey" : x
 	};
 
 	var content_items = [
@@ -91,8 +106,7 @@ function viewStoryPrompt(x){
 	   "$sku": "1101123445",
 	   "$product_name": "Romance",
 	   "$product_brand": "Story Prompts",
-	   "$product_category": "Software",
-	   "~tags" : [x]
+	   "$product_category": "Software"
 	}];
 
 	var customer_event_alias = "View Item";
